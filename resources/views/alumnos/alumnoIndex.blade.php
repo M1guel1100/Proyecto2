@@ -10,6 +10,7 @@
 <body>
     <h1>INDEX</h1>
     <a href="/alumno/create">Nuevo Alumno</a>
+    
 
     <table border='1'>
     <tr>
@@ -17,6 +18,8 @@
     <th>Nombre</th>
     <th>Correo</th>
     <th>Idioma</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
     </tr>
     @foreach($alumnos as $alumno)
     <tr>
@@ -27,6 +30,17 @@
     <td>{{$alumno->nombre}}</td>
     <td>{{$alumno->correo}}</td>
     <td>{{$alumno->idioma}}</td>
+    <td>
+        <a href="/alumno/{{$alumno->id}}/edit">Editar</a>
+    </td>
+    <td>
+        <form action="/alumno/{{$alumno->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <input type=submit value="Borrar">
+        </form>
+    </td>
+
     </tr>
     @endforeach
 </table>

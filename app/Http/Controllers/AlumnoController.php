@@ -66,7 +66,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumnos.alumnoEdit', compact('alumno'));
     }
 
     /**
@@ -78,7 +78,12 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        $alumno->nombre = $request->nombre;
+        $alumno->correo = $request->correo;
+        $alumno->idioma = $request->idioma;
+        $alumno->save();
+
+        return redirect('/alumno');
     }
 
     /**
@@ -89,6 +94,7 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        $alumno->delete();
+        return redirect('/alumno');
     }
 }
