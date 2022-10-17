@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INDEX</title>
+    <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
 </head>
 
 <body>
@@ -25,16 +26,28 @@
     <i>{{ $message }}</i>
   @enderror
   <br>IDIOMA:
-  <br>
-  <input type="radio" name="idioma" value="Ingles">Ingles
-<br>
-<input type="radio" name="idioma" value="Frances">Frances
-<br>
-<input type="radio" name="idioma" value="Aleman">Aleman
-  <br>
+  <p>
+      <label>
+        <input name="idioma" type="radio" value="Ingles" />
+        <span>Ingles</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="idioma" type="radio" value="Frances"/>
+        <span>Frances</span>
+      </label>
+    </p>
+    <p>
+      <label>
+        <input name="idioma" type="radio" value="Aleman"/>
+        <span>Aleman</span>
+      </label>
+    </p>
   <br>
   <input type="submit" value="Submit">
 </br>
 <div class="nav" id="inicio"><a href="/alumno">Inicio</a></div>
+<script src="{{asset('js/materialize.js')}}"></script>
 </body>
 </html>

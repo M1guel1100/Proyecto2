@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>INDEX</title>
+    <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
 </head>
 
 <body>
@@ -45,5 +46,6 @@
     @endforeach
 </table>
 
+<script src="{{asset('js/materialize.js')}}"></script>
 </body>
 </html>
