@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +17,11 @@ use App\Http\Controllers\AlumnoController;
 */
 
 Route::get('/', function () {
-    return view('alumnos.alumnoIndex');
+    return view('alumnos');
 });
+
+
+Route::resource('user',UserController::class);
 
 Route::resource('alumno',AlumnoController::class);
 
