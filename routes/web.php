@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +17,12 @@ use App\Http\Controllers\UserLoginController;
 */
 
 Route::get('/', function () {
-    return view('alumnos');
+    return view('alumnos\LoginUser');
 });
 
 
 Route::resource('user',UserController::class);
+Route::post('user/login',[UserController::class,'login']);
 
 Route::resource('alumno',AlumnoController::class);
 

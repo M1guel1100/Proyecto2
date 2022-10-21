@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\AlumnoController;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,20 +11,22 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-       /* session_start();
+        $enlace = mysqli_connect("localhost", "root", "", "paginacrud");
+        session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
-
-        $q = "SELECT COUNT(*) as contar FROM users WHERE email = '$email' and password = '$password'";
-        $consulta = mysqli_query($q);
-        $array = mysqli_fetch_array($consulta);
+        $q =mysqli_query($enlace, "SELECT COUNT(*) as contar FROM users WHERE email = '$email' and password = '$password'");
+        $array = mysqli_fetch_array($q);
         
         if($array['contar']>0){
-            return view('alumno');
+            return redirect('alumno');
         }
         else{
-            echo "Nelson";
-        }*/
+            echo "<script>
+            alert('Usuario no Existente');
+                    window.location='/'
+                  </script>";
+        }
     }
     /**
      * Display a listing of the resource.
@@ -61,7 +64,6 @@ class UserController extends Controller
 
 
         User::create($request->all());
-        return redirect('user');
     }
 
     /**
